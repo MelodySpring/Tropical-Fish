@@ -1,0 +1,208 @@
+/*----------------------
+CUSTOM FONT
+-----------------------*/
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+}
+
+.lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+}
+
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+}
+
+.lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+/*----------------------
+GLOBAL STYLES
+-----------------------*/
+* {
+    margin: 0;
+}
+
+:root {
+    --font-color-white: #FFF;
+    --font-color-black: #000;
+}
+
+.mt-1 {
+    margin-top: 1em;
+}
+
+.mb-1 {
+    margin-bottom: 1em;
+}
+
+.mt-2 {
+    margin-top: 2em;
+}
+
+.mb-2 {
+    margin-bottom: 2em;
+}
+
+/*----------------------
+START OF PAGE
+-----------------------*/
+body {
+    background-color: #222222;
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+.logo {
+    aspect-ratio: 1.188;
+    background-color: white;
+    width: 70px;
+    margin: 1em auto 0;
+    clip-path: shape(from 100% 61.1%, curve to 98.29% 53.66% with 99.86% 60.49%/99.03% 55.4%, curve to 96.68% 49.15% with 97.36% 51.44%/97.61% 51.35%, curve to 89.71% 37.78% with 96.21% 48.04%/93.42% 42.19%, curve to 79.41% 26.72% with 82.23% 28.9%/80.51% 30.65%, curve to 61.72% 4.91% with 79.22% 26.04%/73.49% 11.91%, curve to 37.06% 0.84% with 59.94% 3.86%/49.77% -2.18%, curve to 3.34% 35.25% with 14.99% 6.08%/5.25% 28.46%, curve to 0.84% 65.9% with 3.09% 36.13%/-1.96% 49.26%, curve to 11.61% 87.15% with 2.03% 72.94%/6.18% 82.63%, curve to 9.85% 44.49% with 3.82% 64.94%/8.65% 51.06%, curve to 28.63% 86.9% with 11.16% 63.88%/17.23% 73.37%, curve to 43.46% 99.88% with 31.48% 90.3%/42.03% 99.77%, curve to 69.64% 92.26% with 58.09% 100.96%/66.25% 94.45%, curve to 58.91% 70.65% with 59.81% 78.36%/59.74% 71.64%, curve to 57.76% 64.91% with 58.86% 70.6%/57.81% 65.62%, curve to 59.58% 58.92% with 57.52% 61.51%/57.56% 61.32%, curve to 100% 61.1% with 63.18% 54.64%/81.32% 49.31%, close);
+}
+
+h1.heading {
+    font-size: 4rem;
+    color: var(--font-color-white);
+    line-height: normal;
+    margin: 0;
+}
+
+/* ⭐ UPDATED FOR FISH QUIZ */
+.fishImg {
+    height: 200px;
+    width: auto;
+    display: block;
+    margin: 20px auto 0;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+h2.ask-question {
+    font-size: 2rem;
+    text-align: center;
+    color: var(--font-color-white);
+}
+
+.multiple-choice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    flex-flow: row wrap;
+}
+
+.option {
+    font-size: 1rem;
+    text-align: center;
+    display: flex;
+    color: var(--font-color-white);
+    background-color: black;
+    height: 75px;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 1em;
+}
+
+.option:hover {
+    cursor: pointer;
+    transition: 0.5s;
+    background-color: #ffffff;
+    color: var(--font-color-black);
+}
+
+.option:active {
+    background-color: #ffea00 !important;
+}
+
+.option.selected {
+    background-color: #e9ec14;
+    color: black;
+}
+
+.submit-btn {
+    font-size: 1rem;
+    background-color: white;
+    color: black;
+    height: 50px;
+    width: 250px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #b5ff79;
+}
+
+.answerBox--wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+#answerBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px #e9ec14;
+    margin: 0 2em;
+    border-radius: 10px;
+    padding: 1em 3em;
+    max-width: 600px;
+}
+
+#answerBox h2 {
+    font-size: 1rem;
+    color: var(--font-color-white);
+}
+
+#answerBox p {
+    font-size: 2rem;
+    color: var(--font-color-white);
+}
