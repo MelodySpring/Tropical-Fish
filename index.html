@@ -7,16 +7,55 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
 
+  <!-- custom css -->
   <link rel="stylesheet" href="./assets/css/style.css" />
-  <title>Fish Quiz</title>
+  <title>Geo Bites</title>
 </head>
 
 <body>
   <header>
     <div class="logo"></div>
-    <h1 class="heading lato-regular">Fish Quiz</h1>
+    <h1 class="heading lato-regular">Geo Bites</h1>
   </header>
 
   <main>
+
+    <!-- Bird image -->
+    <img class="birdImg" src="" alt="Bird Image">
+
+    <!-- Question heading -->
+    <h2 class="ask-question lato-regular mt-1">Which bird is this?</h2>
+
+    <!-- Answer buttons -->
+    <div class="multiple-choice mb-1">
+      <button class="option lato-regular" type="button"></button>
+      <button class="option lato-regular" type="button"></button>
+      <button class="option lato-regular" type="button"></button>
+      <button class="option lato-regular" type="button"></button>
+    </div>
+
+    <!-- Submit button -->
+    <button id="submit" class="submit-btn mb-2 lato-regular" type="button">
+      Submit Answer
+    </button>
+
+    <!-- Answer box -->
+    <div class="answerBox--wrapper mb-2 lato-regular">
+      <div id="answerBox">
+        <h2>The answer is.......</h2>
+        <p></p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- JS FILE -->
+  <script src="./assets/js/script.js"></script>
+
+</body>
+
+</html>

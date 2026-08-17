@@ -1,5 +1,5 @@
 // HTML elements
-const fishImg = document.querySelector(".fishImg");
+const birdImg = document.querySelector(".birdImg");
 const answerButtons = document.querySelectorAll(".option");
 const submitBtn = document.querySelector("#submit");
 const answerBox = document.querySelector("#answerBox");
@@ -9,27 +9,32 @@ const answerText = document.querySelector("#answerBox p");
 answerBox.style.display = "none";
 
 // Data storage
-let fishList = [];
-let currentFish;
+let birdList = [];
+let currentBird;
 let selectedAnswer = "";
 
-// Load fish data from FishWatch API
-async function loadFishData() {
+// Load bird data from free API
+async function loadBirdData() {
   try {
-    const response = await fetch("https://www.fishwatch.gov/api/species");
+    const response = await fetch("https://ornithophile.vercel.app/api/birds/alpha/a");
     const data = await response.json();
 
-    // Filter fish with images + names
-    fishList = data
-      .filter(fish => fish["Species Name"] && fish["Image Gallery"])
-      .map(fish => ({
-        name: fish["Species Name"],
-        image: fish["Image Gallery"][0]?.src || "",
-      }));
+    // Only keep birds that actually have images
+    birdList = data.filter(bird =>
+      bird.male_image || bird.female_image
+    );
+
+    if (birdList.length === 0) {
+      answerBox.style.display = "flex";
+      answerText.textContent = "No birds with images found.";
+      return;
+    }
 
     showQuestion();
   } catch (error) {
-    console.error("Error loading fish data:", error);
+    console.error("Error loading bird data:", error);
+    answerBox.style.display = "flex";
+    answerText.textContent = "Error loading bird data.";
   }
 }
 
@@ -41,21 +46,23 @@ function showQuestion() {
   // Reset button styles
   answerButtons.forEach(btn => btn.classList.remove("selected"));
 
-  // Pick a random fish
-  const randomIndex = Math.floor(Math.random() * fishList.length);
-  currentFish = fishList[randomIndex];
+  // Pick a random bird
+  const randomIndex = Math.floor(Math.random() * birdList.length);
+  currentBird = birdList[randomIndex];
 
-  // Display fish image
-  fishImg.src = currentFish.image;
-  fishImg.alt = currentFish.name;
+  // Choose whichever image exists
+  const imageUrl = currentBird.male_image || currentBird.female_image;
+
+  birdImg.src = imageUrl;
+  birdImg.alt = currentBird.common_name;
 
   // Build answer options
-  let options = [currentFish.name];
+  let options = [currentBird.common_name];
 
   while (options.length < 4) {
-    const randomFish = fishList[Math.floor(Math.random() * fishList.length)].name;
-    if (!options.includes(randomFish)) {
-      options.push(randomFish);
+    const randomBird = birdList[Math.floor(Math.random() * birdList.length)].common_name;
+    if (!options.includes(randomBird)) {
+      options.push(randomBird);
     }
   }
 
@@ -89,14 +96,14 @@ submitBtn.addEventListener("click", (event) => {
     return;
   }
 
-  if (selectedAnswer === currentFish.name) {
+  if (selectedAnswer === currentBird.common_name) {
     answerText.textContent = "Correct! 🎉";
   } else {
-    answerText.textContent = `Incorrect. The correct answer is ${currentFish.name}.`;
+    answerText.textContent = `Incorrect. The correct answer is ${currentBird.common_name}.`;
   }
 
   setTimeout(showQuestion, 2000);
 });
 
 // Start quiz
-loadFishData();
+loadBirdData();
