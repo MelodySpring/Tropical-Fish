@@ -102,7 +102,7 @@ submitBtn.addEventListener("click", (event) => {
     answerText.textContent = `Incorrect. The correct answer is ${currentBird.common_name}.`;
   }
 
-  setTimeout(showQuestion, 2000);
+  setTimeout(showQuestion, 5000);
 });
 
 // Start quiz
